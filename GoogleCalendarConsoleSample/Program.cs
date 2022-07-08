@@ -56,6 +56,8 @@ namespace CalendarQuickstart
 
                 // List events.
                 Events events = request.Execute();
+                Console.WriteLine(request.TimeZone);
+                Console.WriteLine("calendar time zone: {0}", events.TimeZone);
                 Console.WriteLine("Upcoming events:");
                 if (events.Items == null || events.Items.Count == 0)
                 {
@@ -69,7 +71,8 @@ namespace CalendarQuickstart
                     {
                         when = eventItem.Start.Date;
                     }
-                    Console.WriteLine("{0} ({1})", eventItem.Summary, when);
+                    string whenTimeZone = eventItem.Start.TimeZone.ToString();
+                    Console.WriteLine("{0} ({1}) ({2})", eventItem.Summary, when, whenTimeZone);
                 }
             }
             catch (FileNotFoundException e)
