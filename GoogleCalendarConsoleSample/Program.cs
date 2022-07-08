@@ -56,7 +56,6 @@ namespace CalendarQuickstart
 
                 // List events.
                 Events events = request.Execute();
-                Console.WriteLine(request.TimeZone);
                 Console.WriteLine("calendar time zone: {0}", events.TimeZone);
                 Console.WriteLine("Upcoming events:");
                 if (events.Items == null || events.Items.Count == 0)
