@@ -34,7 +34,8 @@ namespace CalendarQuickstart
             GetGoogleCalendarEvents(accessToken);*/
 
             // 3.
-            var accessToken = UpdateAccessToken().Result;
+            /*var accessToken = UpdateAccessToken().Result;*/
+            var accessToken = "ya29.A0AVA9y1t7IUYIJDojAR2aty2gnO3GnmsorWhDw0GGfRLYCWeOaWBdtqO9skEdQztKaNuEishfKr-eTX7aCo_zO6F2dYWk7HRmyifXcerpR-jhSBQ757xIzKAn8jppw1LRV89beFrzyiOdxZVtI8zEWSZHD3ofsAYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4MVdxWThIVGxmdWI2OTNhcnVHOWRYdw0165";
             GetGoogleCalendarEvents(accessToken);
 
         }
@@ -132,6 +133,8 @@ namespace CalendarQuickstart
                     when = eventItem.Start.Date;
                 }
                 string whenTimeZone = eventItem.Start.TimeZone.ToString();
+                DateTime originDateTime = DateTime.SpecifyKind(eventItem.Start.DateTime.Value, DateTimeKind.Unspecified);
+                var startTime = TimeZoneInfo.ConvertTimeToUtc(originDateTime, System.TimeZoneInfo.Utc);
                 Console.WriteLine("{0} ({1}) ({2})", eventItem.Summary, when, whenTimeZone);
             }
         }
