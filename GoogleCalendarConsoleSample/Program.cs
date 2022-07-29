@@ -153,7 +153,7 @@ namespace CalendarQuickstart
 
             CalendarsResource.InsertRequest insertCalendarRequest = service.Calendars.Insert(newCalendar);
             Calendar calendar = insertCalendarRequest.Execute();
-            String calendarId = calendar.Id;*/
+            string calendarId = calendar.Id;*/
 
             string calendarId = "u64c8l0ivsuiiqtq8j0qeviabs@group.calendar.google.com";
 
@@ -195,15 +195,15 @@ namespace CalendarQuickstart
 
 
             /*==================================== Update Event. ====================================*/
-            string eventId = "f37lq998oehqolk53b5gcpipc0";
+            /*string eventId = "f37lq998oehqolk53b5gcpipc0";
             newEvent.Summary = "Google I/O 2022";
             EventsResource.UpdateRequest updateRequest = service.Events.Update(newEvent, calendarId, eventId);
             Event result =  updateRequest.Execute();
-            Console.WriteLine("Event updated: {0}, eventId: {1}", result.HtmlLink, result.Id);
+            Console.WriteLine("Event updated: {0}, eventId: {1}", result.HtmlLink, result.Id);*/
 
 
             /*==================================== Delete Event. ====================================*/
-            service.Events.Delete(calendarId, result.Id).Execute();
+            /*service.Events.Delete(calendarId, result.Id).Execute();*/
         }
     }
 }
